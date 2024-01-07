@@ -23,8 +23,8 @@ const AuthService = {
     return newUser;
   },
   loginUser: async (req, userData) => {
-    const { email, password } = userData;
-    const user = await UserModel.findOne({ where: { email } });
+    const { email, password, role } = userData;
+    const user = await UserModel.findOne({ where: { email, role } });
     if (!user) {
       throw new Error(`user with this ${email} do not exist`);
     }

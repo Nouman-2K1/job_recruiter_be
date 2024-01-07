@@ -9,6 +9,6 @@ AuthRouter.post(
   AuthValidator.registerUser,
   AuthController.registerUser
 );
-AuthRouter.post("/login", AuthValidator.loginUser, AuthController.loginuser);
+AuthRouter.post("/login", AuthValidator.loginUser, AuthController.loginUser);
 
 export default AuthRouter;

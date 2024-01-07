@@ -13,7 +13,7 @@ const AuthController = {
       return res.status(500).json({ message: "Internal Server Error" });
     }
   },
-  loginuser: async (req, res) => {
+  loginUser: async (req, res) => {
     try {
       const user = await AuthService.loginUser(req, req.body);
       const { token, data } = user;
