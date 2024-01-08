@@ -26,10 +26,6 @@ const CompanyModel = sequelize.define("company", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  category: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
 });
 
 CompanyModel.hasMany(JobModel);
