@@ -25,10 +25,6 @@ const CandidateModel = sequelize.define("candidate", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  category: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
 });
 
 export default CandidateModel;

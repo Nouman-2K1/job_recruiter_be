@@ -5,14 +5,6 @@ const JobModel = sequelize.define("job", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  category: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  type: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
   job_posted: {
     type: DataTypes.TIME,
     allowNull: false,

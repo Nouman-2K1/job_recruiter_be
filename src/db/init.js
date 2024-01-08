@@ -9,7 +9,8 @@ import CompanyModel from "../Model/CompanyModel/CompanyModel.js";
 import SkillModel from "../Model/SkillModel/SkillModel.js";
 import JobModel from "../Model/JobModel/JobModel.js";
 import JobSkillModel from "../Model/JobSkillModel/JobSkillModel.js";
-
+import TypeModel from "../Model/TypeModel/TypeModel.js";
+import CategoryModel from "../Model/CategoryModel/CategoryModel.js";
 const dbInit = async () => {
   await UserModel.sync({
     alter: true,
@@ -19,7 +20,15 @@ const dbInit = async () => {
     alter: true,
     force: false,
   });
+  await CategoryModel.sync({
+    alter: true,
+    force: false,
+  });
   await CompanyModel.sync({
+    alter: true,
+    force: false,
+  });
+  await TypeModel.sync({
     alter: true,
     force: false,
   });
