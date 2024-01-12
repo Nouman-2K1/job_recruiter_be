@@ -1,6 +1,7 @@
+import JobModel from "../../Model/JobModel/JobModel.js";
 const JobService = {
   getAllJobs: async () => {
-    const job = await AdminModel.findAll();
+    const job = await JobModel.findAll();
     return job;
   },
 };
