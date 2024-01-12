@@ -2,7 +2,7 @@ import JobService from "../../Services/JobService/JobService.js";
 const JobController = {
   getAllJobs: async (req, res) => {
     try {
-      const job = await JobService.getAllJobs(req.body);
+      const job = await JobService.getAllJobs();
       if (!job) {
         return res.status(400).json({ message: "Job Not Exist" });
       }
