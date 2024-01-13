@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../../db/config.js";
 import CandidateModel from "../CandidateModel/CandidateModel.js";
 const CandidateUrlModel = sequelize.define("candidate_url", {
-  url_title: {
+  urlTitle: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -12,7 +12,7 @@ const CandidateUrlModel = sequelize.define("candidate_url", {
   },
 });
 
-CandidateModel.hasMany(CandidateUrlModel);
+CandidateModel.hasMany(CandidateUrlModel, { as: "candidateUrls" });
 CandidateUrlModel.belongsTo(CandidateModel);
 
 export default CandidateUrlModel;

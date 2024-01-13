@@ -6,20 +6,26 @@ const CandidaetExperienceModel = sequelize.define("candidate_experience", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  company: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   description: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  start_date: {
+  startDate: {
     type: DataTypes.DATE,
-    allowNull: false,
+    allowNull: true,
   },
-  end_date: {
+  endDate: {
     type: DataTypes.DATE,
-    allowNull: false,
+    allowNull: true,
   },
 });
 
-CandidateModel.hasMany(CandidaetExperienceModel);
+CandidateModel.hasMany(CandidaetExperienceModel, {
+  as: "candidateExperiences",
+});
 CandidaetExperienceModel.belongsTo(CandidateModel);
 export default CandidaetExperienceModel;

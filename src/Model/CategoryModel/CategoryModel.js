@@ -4,7 +4,7 @@ import CompanyModel from "../CompanyModel/CompanyModel.js";
 import JobModel from "../JobModel/JobModel.js";
 import CandidateModel from "../CandidateModel/CandidateModel.js";
 const CategoryModel = sequelize.define("category", {
-  categorys: {
+  name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
