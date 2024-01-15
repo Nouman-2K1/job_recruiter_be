@@ -26,6 +26,7 @@ const CandidaetExperienceModel = sequelize.define("candidate_experience", {
 
 CandidateModel.hasMany(CandidaetExperienceModel, {
   as: "candidateExperiences",
+  onDelete: "cascade",
 });
 CandidaetExperienceModel.belongsTo(CandidateModel);
 export default CandidaetExperienceModel;

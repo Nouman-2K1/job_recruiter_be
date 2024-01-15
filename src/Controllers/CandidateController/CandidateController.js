@@ -20,6 +20,34 @@ const CandidateController = {
       return res.status(500).json({ message: "Internal Server Error" });
     }
   },
+  updateCandidate: async (req, res) => {
+    try {
+      const candidateId = req.params.candidateId;
+      const candidate = await CandidateService.updateCandidate(
+        req,
+        candidateId,
+        req.body
+      );
+      return res
+        .status(201)
+        .json({ message: "Candidate updated Successfully" });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ message: "Internal Server Error" });
+    }
+  },
+  deleteCandidate: async (req, res) => {
+    try {
+      const candidateId = req.params.candidateId;
+      const candidate = await CandidateService.deleteCandidate(candidateId);
+      return res
+        .status(201)
+        .json({ message: "Candidate Deleted Successfully" });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ message: "Internal Server Error" });
+    }
+  },
 };
 
 export default CandidateController;

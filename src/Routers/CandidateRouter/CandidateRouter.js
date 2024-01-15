@@ -15,4 +15,14 @@ CandidateRouter.post(
   CandidateValidator.addCandidate,
   CandidateController.addCandidate
 );
+CandidateRouter.put(
+  "/updateResume/:candidateId",
+  AuthenticateMiddleware,
+  CandidateController.updateCandidate
+);
+CandidateRouter.delete(
+  "/deleteResume/:candidateId",
+  AuthenticateMiddleware,
+  CandidateController.deleteCandidate
+);
 export default CandidateRouter;

@@ -28,6 +28,9 @@ const CandidaetEducationModel = sequelize.define("candidate_education", {
   },
 });
 
-CandidateModel.hasMany(CandidaetEducationModel, { as: "CandidateEducations" });
+CandidateModel.hasMany(CandidaetEducationModel, {
+  as: "CandidateEducations",
+  onDelete: "cascade",
+});
 CandidaetEducationModel.belongsTo(CandidateModel);
 export default CandidaetEducationModel;

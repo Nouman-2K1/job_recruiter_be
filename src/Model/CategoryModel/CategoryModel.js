@@ -10,13 +10,13 @@ const CategoryModel = sequelize.define("category", {
   },
 });
 
-CategoryModel.hasMany(CompanyModel);
+CategoryModel.hasMany(CompanyModel, { onDelete: "cascade" });
 CompanyModel.belongsTo(CategoryModel);
 
-CategoryModel.hasMany(JobModel);
+CategoryModel.hasMany(JobModel, { onDelete: "cascade" });
 JobModel.belongsTo(CategoryModel);
 
-CategoryModel.hasMany(CandidateModel);
+CategoryModel.hasMany(CandidateModel, { onDelete: "cascade" });
 CandidateModel.belongsTo(CategoryModel);
 
 export default CategoryModel;

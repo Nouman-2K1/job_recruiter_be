@@ -12,7 +12,10 @@ const CandidateUrlModel = sequelize.define("candidate_url", {
   },
 });
 
-CandidateModel.hasMany(CandidateUrlModel, { as: "candidateUrls" });
+CandidateModel.hasMany(CandidateUrlModel, {
+  as: "candidateUrls",
+  onDelete: "CASCADE",
+});
 CandidateUrlModel.belongsTo(CandidateModel);
 
 export default CandidateUrlModel;

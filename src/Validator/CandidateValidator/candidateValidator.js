@@ -17,16 +17,16 @@ const CandidateValidator = {
         institution: Joi.string().required(),
         degree: Joi.string().required(),
         marks: Joi.string().required(),
-        startDate: Joi.date().required(),
-        endDate: Joi.date().required(),
+        // startDate: Joi.date().required(),
+        // endDate: Joi.date().required(),
         description: Joi.string().required(),
       });
 
       const experienceSchema = Joi.object({
         title: Joi.string().required(),
         company: Joi.string().required(),
-        startDate: Joi.date().required(),
-        endDate: Joi.date().required(),
+        // startDate: Joi.date().required(),
+        // endDate: Joi.date().required(),
         description: Joi.string().required(),
       });
 
