@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../../db/config.js";
+import CandidateModel from "../CandidateModel/CandidateModel.js";
 const UserModel = sequelize.define("user", {
   name: {
     type: DataTypes.STRING,
@@ -20,3 +21,6 @@ const UserModel = sequelize.define("user", {
 });
 
 export default UserModel;
+
+UserModel.hasMany(CandidateModel);
+CandidateModel.belongsTo(UserModel);

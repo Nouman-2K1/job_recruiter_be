@@ -8,6 +8,6 @@ const TypeModel = sequelize.define("type", {
   },
 });
 
-TypeModel.hasMany(JobModel);
+TypeModel.hasMany(JobModel, { onDelete: "cascade" });
 JobModel.belongsTo(TypeModel);
 export default TypeModel;

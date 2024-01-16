@@ -5,6 +5,10 @@ const CandidateModel = sequelize.define("candidate", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
   job_title: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -14,6 +18,10 @@ const CandidateModel = sequelize.define("candidate", {
     allowNull: false,
   },
   location: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  image: {
     type: DataTypes.STRING,
     allowNull: false,
   },

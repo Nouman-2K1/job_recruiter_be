@@ -5,7 +5,10 @@ import SkillModel from "../SkillModel/SkillModel.js";
 
 const JobSkillModel = sequelize.define("job_skill", {});
 
-SkillModel.belongsToMany(JobModel, { through: JobSkillModel });
+SkillModel.belongsToMany(JobModel, {
+  through: JobSkillModel,
+  onDelete: "cascade",
+});
 JobModel.belongsToMany(SkillModel, { through: JobSkillModel });
 
 export default JobSkillModel;

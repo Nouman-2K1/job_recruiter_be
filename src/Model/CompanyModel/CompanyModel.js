@@ -28,7 +28,7 @@ const CompanyModel = sequelize.define("company", {
   },
 });
 
-CompanyModel.hasMany(JobModel);
+CompanyModel.hasMany(JobModel, { onDelete: "cascade" });
 JobModel.belongsTo(CompanyModel);
 
 export default CompanyModel;
