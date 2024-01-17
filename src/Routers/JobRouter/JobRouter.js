@@ -1,8 +1,8 @@
 import { Router } from "express";
 import JobController from "../../Controllers/JobControler/JobContoler.js";
-import AuthenticateMiddleware from "../../Middleware/Authinticate.js";
+import AuthenticateEmployer from "../../Middleware/AuthinticateEmployer.js";
 const JobRouter = Router();
 
-JobRouter.get("/jobs", AuthenticateMiddleware, JobController.getAllJobs);
+JobRouter.get("/jobs", AuthenticateEmployer, JobController.getAllJobs);
 
 export default JobRouter;

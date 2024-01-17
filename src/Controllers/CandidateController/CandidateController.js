@@ -1,5 +1,17 @@
 import CandidateService from "../../Services/CandidateService/CandidateService.js";
 const CandidateController = {
+  getSingleCandidate: async (req, res) => {
+    try {
+      const candidateId = req.params.candidateId;
+      const candidate = await CandidateService.getSingleCandidate(candidateId);
+      if (!candidate) {
+        return res.status(400).json({ message: "Candidate Not Exist" });
+      }
+      return res.status(200).json(candidate);
+    } catch (error) {
+      return res.status(500).json({ message: "Internal Server Error" });
+    }
+  },
   getAllCandidate: async (req, res) => {
     try {
       const candidate = await CandidateService.getAllCandidate();
