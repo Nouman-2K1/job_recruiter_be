@@ -5,10 +5,10 @@ import AuthenticateCandidate from "../../Middleware/AuthinticateCandidate.js";
 const CandidateRouter = Router();
 
 CandidateRouter.get(
-  "/candidate",
-  AuthenticateCandidate,
-  CandidateController.getCandidate
+  "/candidate/:candidateId",
+  CandidateController.getSingleCandidate
 );
+CandidateRouter.get("/candidates", CandidateController.getAllCandidate);
 CandidateRouter.post(
   "/resume",
   AuthenticateCandidate,
@@ -18,6 +18,7 @@ CandidateRouter.post(
 CandidateRouter.put(
   "/updateResume/:candidateId",
   AuthenticateCandidate,
+  CandidateValidator.addCandidate,
   CandidateController.updateCandidate
 );
 CandidateRouter.delete(

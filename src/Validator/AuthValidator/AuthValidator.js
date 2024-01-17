@@ -25,7 +25,6 @@ const AuthValidator = {
       const schema = Joi.object({
         email: Joi.string().email({ minDomainSegments: 2 }).required(),
         password: Joi.string().min(6).max(100).required(),
-        role: Joi.string().min(6).max(100).required(),
       });
       const { error, value } = schema.validate(data);
       if (error) {

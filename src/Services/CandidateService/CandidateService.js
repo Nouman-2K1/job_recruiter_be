@@ -6,12 +6,30 @@ import CandidateSkillModel from "../../Model/CandidateSkillModel/CandidateSkillM
 import CandidateUrlModel from "../../Model/CandidateUrlModel/CandidateUrlModel.js";
 import CandidaetExperienceModel from "../../Model/CandidateExprerienceModel/CandidateExperienceModel.js";
 const CandidateService = {
-  getCandidate: async (req) => {
-    const candidate_Id = req.session.user.id;
+  getSingleCandidate: async (candidateId) => {
     const candidate = await CandidateModel.findOne({
       where: {
-        id: candidate_Id,
+        id: candidateId,
       },
+      include: [
+        {
+          model: CandidateUrlModel,
+          as: "candidateUrls",
+        },
+        {
+          model: CandidaetExperienceModel,
+          as: "candidateExperiences",
+        },
+        {
+          model: CandidaetEducationModel,
+          as: "candidateEducations",
+        },
+      ],
+    });
+    return candidate;
+  },
+  getAllCandidate: async (req) => {
+    const candidate = await CandidateModel.findAll({
       include: [
         {
           model: CandidateUrlModel,

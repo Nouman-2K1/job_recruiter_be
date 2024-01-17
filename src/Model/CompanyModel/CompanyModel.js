@@ -14,7 +14,7 @@ const CompanyModel = sequelize.define("company", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  descryption: {
+  description: {
     type: DataTypes.STRING,
     allowNull: false,
   },
