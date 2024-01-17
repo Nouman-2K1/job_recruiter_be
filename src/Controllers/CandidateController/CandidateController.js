@@ -1,8 +1,8 @@
 import CandidateService from "../../Services/CandidateService/CandidateService.js";
 const CandidateController = {
-  getAllCandidate: async (req, res) => {
+  getCandidate: async (req, res) => {
     try {
-      const candidate = await CandidateService.getAllCandidate();
+      const candidate = await CandidateService.getCandidate(req);
       if (!candidate) {
         return res.status(400).json({ message: "Candidates Not Exist" });
       }
