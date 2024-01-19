@@ -9,12 +9,8 @@ const JobModel = sequelize.define("job", {
     type: DataTypes.TIME,
     allowNull: false,
   },
-  applicatio_deadline: {
+  application_deadline: {
     type: DataTypes.DATE,
-    allowNull: false,
-  },
-  hourly_rate: {
-    type: DataTypes.STRING,
     allowNull: false,
   },
   salary: {
@@ -22,6 +18,14 @@ const JobModel = sequelize.define("job", {
     allowNull: false,
   },
   location: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  type: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  description: {
     type: DataTypes.STRING,
     allowNull: false,
   },

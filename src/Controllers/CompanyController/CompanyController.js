@@ -31,7 +31,7 @@ const CompanyController = {
           .status(400)
           .json({ message: "Error in Adding Copmany, Please Retry" });
       }
-      return res.status(200).json({ messsage: "Company Added Successfully" });
+      return res.status(201).json({ messsage: "Company Added Successfully" });
     } catch (error) {
       return res.status(500).json({ message: "Internal Server Error" });
     }
@@ -54,7 +54,7 @@ const CompanyController = {
     try {
       const companyId = req.params.companyId;
       const company = await CompanyService.deleteCompany(companyId);
-      return res.status(201).json({ message: "Company Deleted Successfully" });
+      return res.status(200).json({ message: "Company Deleted Successfully" });
     } catch (error) {
       console.log(error);
       return res.status(500).json({ message: "Internal Server Error" });
