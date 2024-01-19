@@ -44,7 +44,6 @@ const CandidateController = {
         .status(201)
         .json({ message: "Candidate updated Successfully" });
     } catch (error) {
-      console.log(error);
       return res.status(500).json({ message: "Internal Server Error" });
     }
   },
@@ -53,10 +52,9 @@ const CandidateController = {
       const candidateId = req.params.candidateId;
       const candidate = await CandidateService.deleteCandidate(candidateId);
       return res
-        .status(201)
+        .status(200)
         .json({ message: "Candidate Deleted Successfully" });
     } catch (error) {
-      console.log(error);
       return res.status(500).json({ message: "Internal Server Error" });
     }
   },
