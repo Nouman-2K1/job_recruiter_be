@@ -21,8 +21,15 @@ const AuthController = {
         .status(200)
         .json({ message: "user Loged in Sussceefully", token, data });
     } catch (error) {
-      console.log(error);
-      return res.status(403).json({ message: "Bad Requset" });
+      let statusCode = 500;
+      if (error.message == "user with this email do not exist") {
+        statusCode = 403;
+      } else if (error.message == "Invalid Password") {
+        statusCode = 403;
+      }
+      return res
+        .status(statusCode)
+        .json({ message: "Bad Requset", error: error.message });
     }
   },
 };

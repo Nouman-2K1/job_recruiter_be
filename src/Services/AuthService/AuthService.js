@@ -27,7 +27,7 @@ const AuthService = {
 
     const user = await UserModel.findOne({ where: { email, role } });
     if (!user) {
-      throw new Error(`user with this ${email} do not exist`);
+      throw new Error(`user with this email do not exist`);
     }
     const comparedPassword = await compare(password, user.password);
     if (!comparedPassword) {
