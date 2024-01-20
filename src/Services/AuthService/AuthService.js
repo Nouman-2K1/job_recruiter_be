@@ -5,7 +5,7 @@ import UserModel from "../../Model/UserModel/UserModel.js";
 const AuthService = {
   registerUser: async (userData) => {
     const { name, email, password, role } = userData;
-    const userExist = await UserModel.findOne({ where: { email } });
+    const userExist = await UserModel.findOne({ where: { email, role } });
 
     if (userExist) {
       throw new Error("user with this Email already exists");
