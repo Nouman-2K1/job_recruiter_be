@@ -5,7 +5,7 @@ import JobValidator from "../../Validator/JobValidator/JobValidator.js";
 
 const JobRouter = Router();
 
-JobRouter.get("/job", JobController.getSingleJobs);
+JobRouter.get("/job/:jobId", JobController.getSingleJobs);
 JobRouter.get("/jobs", JobController.getAllJobs);
 JobRouter.post(
   "/addJob",
