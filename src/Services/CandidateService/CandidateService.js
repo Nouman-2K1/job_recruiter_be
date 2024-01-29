@@ -72,7 +72,7 @@ const CandidateService = {
       },
     });
     if (!categoryId) {
-      throw new Error("Invalid Category");
+      return { error: "Invalid Category" };
     }
     const candidate = await CandidateModel.create({
       name,
@@ -155,7 +155,7 @@ const CandidateService = {
     const candidate = await CandidateModel.findByPk(candidateId);
 
     if (!candidate) {
-      throw new Error("Candidate not found");
+      return { error: "Candidate not found" };
     }
 
     candidate.name = name;
@@ -174,7 +174,7 @@ const CandidateService = {
       },
     });
     if (!categoryId) {
-      throw new Error("Invalid Category");
+      return { error: "Invalid Category" };
     }
     candidate.categoryid = categoryId.id;
 
@@ -245,7 +245,7 @@ const CandidateService = {
       where: { id: skillIds.map((id) => id.skillId) },
     });
     if (!candidate) {
-      throw new Error("Candidate not found");
+      return { error: "Candidate not found" };
     }
     await candidate.destroy();
 

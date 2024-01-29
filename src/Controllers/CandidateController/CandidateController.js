@@ -26,6 +26,9 @@ const CandidateController = {
   addCandidate: async (req, res) => {
     try {
       const candidate = await CandidateService.addCandidate(req, req.body);
+      if (candidate.error) {
+        return res.status(404).json({ message: result.error });
+      }
       return res.status(201).json({ message: "Candidate added Successfully" });
     } catch (error) {
       console.log(error);
@@ -40,6 +43,9 @@ const CandidateController = {
         candidateId,
         req.body
       );
+      if (candidate.error) {
+        return res.status(404).json({ message: result.error });
+      }
       return res
         .status(201)
         .json({ message: "Candidate updated Successfully" });
@@ -51,6 +57,9 @@ const CandidateController = {
     try {
       const candidateId = req.params.candidateId;
       const candidate = await CandidateService.deleteCandidate(candidateId);
+      if (candidate.error) {
+        return res.status(404).json({ message: result.error });
+      }
       return res
         .status(200)
         .json({ message: "Candidate Deleted Successfully" });
