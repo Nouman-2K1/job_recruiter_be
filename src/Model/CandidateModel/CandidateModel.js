@@ -33,6 +33,14 @@ const CandidateModel = sequelize.define("candidate", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  cv: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  status: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+  },
 });
 
 export default CandidateModel;

@@ -64,6 +64,7 @@ const CandidateService = {
       url,
       education,
       experience,
+      cv,
     } = candidateData;
 
     const categoryId = await CategoryModel.findOne({
@@ -85,6 +86,8 @@ const CandidateService = {
       description,
       categoryId: categoryId.id,
       userId,
+      status: true,
+      cv,
     });
     if (skill && skill.length > 0) {
       const skillInstances = await SkillModel.bulkCreate(
@@ -150,6 +153,7 @@ const CandidateService = {
       url,
       education,
       experience,
+      cv,
     } = updatedCandidateData;
 
     const candidate = await CandidateModel.findByPk(candidateId);
@@ -157,7 +161,14 @@ const CandidateService = {
     if (!candidate) {
       return { error: "Candidate not found" };
     }
-
+    const categoryId = await CategoryModel.findOne({
+      where: {
+        name: category,
+      },
+    });
+    if (!categoryId) {
+      return { error: "Invalid Category" };
+    }
     candidate.name = name;
     candidate.email = email;
     candidate.region = region;
@@ -167,15 +178,9 @@ const CandidateService = {
     candidate.hourly_rate = hourly_rate;
     candidate.description = description;
     candidate.candidateId = userId;
+    candidate.cv = cv;
+    candidate.status = true;
 
-    const categoryId = await CategoryModel.findOne({
-      where: {
-        name: category,
-      },
-    });
-    if (!categoryId) {
-      return { error: "Invalid Category" };
-    }
     candidate.categoryid = categoryId.id;
 
     if (skill && skill.length > 0) {
