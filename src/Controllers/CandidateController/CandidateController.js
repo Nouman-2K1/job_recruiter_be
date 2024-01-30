@@ -84,7 +84,7 @@ const CandidateController = {
       if (applyedJobCount.error) {
         return res.status(404).json({ message: result.error });
       }
-      return res.status(200).json(candidateResumeCount);
+      return res.status(200).json(applyedJobCount);
     } catch (error) {
       return res.status(500).json({ message: "Internal Server Error" });
     }
