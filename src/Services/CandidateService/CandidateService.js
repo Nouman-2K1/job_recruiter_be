@@ -5,6 +5,7 @@ import CandidaetEducationModel from "../../Model/CandidateEducationModel/Candida
 import CandidateSkillModel from "../../Model/CandidateSkillModel/CandidateSkillModel.js";
 import CandidateUrlModel from "../../Model/CandidateUrlModel/CandidateUrlModel.js";
 import CandidaetExperienceModel from "../../Model/CandidateExprerienceModel/CandidateExperienceModel.js";
+import ApplicationModel from "../../Model/ApplicationModel/ApplicationModel.js";
 const CandidateService = {
   getSingleCandidate: async (candidateId) => {
     const candidate = await CandidateModel.findOne({
@@ -252,11 +253,18 @@ const CandidateService = {
     return { message: "Candidate deleted successfully" };
   },
   resumeCounter: async (req) => {
-    const userEmail = req.session.user.email;
+    const userId = req.session.user.id;
     const resumeCount = await CandidateModel.count({
-      where: { email: userEmail },
+      where: { userId },
     });
     return { resumeCount };
+  },
+  applyedJobCounter: async (req) => {
+    const userId = req.session.user.id;
+    const applyedJobCount = await ApplicationModel.count({
+      where: { userId },
+    });
+    return { applyedJobCount };
   },
 };
 

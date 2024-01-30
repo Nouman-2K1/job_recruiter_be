@@ -70,7 +70,18 @@ const CandidateController = {
   resumeCounter: async (req, res) => {
     try {
       const candidateResumeCount = await CandidateService.resumeCounter(req);
-      if (candidate.error) {
+      if (candidateResumeCount.error) {
+        return res.status(404).json({ message: result.error });
+      }
+      return res.status(200).json(candidateResumeCount);
+    } catch (error) {
+      return res.status(500).json({ message: "Internal Server Error" });
+    }
+  },
+  applyedJobCounter: async (req, res) => {
+    try {
+      const applyedJobCount = await CandidateService.applyedJobCounter(req);
+      if (applyedJobCount.error) {
         return res.status(404).json({ message: result.error });
       }
       return res.status(200).json(candidateResumeCount);
