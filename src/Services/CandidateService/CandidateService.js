@@ -42,7 +42,7 @@ const CandidateService = {
         },
         {
           model: CandidaetEducationModel,
-          as: "candidateEducations",
+          as: "CandidateEducations",
         },
       ],
     });
