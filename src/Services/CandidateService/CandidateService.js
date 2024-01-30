@@ -14,6 +14,9 @@ const CandidateService = {
       },
       include: [
         {
+          model: SkillModel,
+        },
+        {
           model: CandidateUrlModel,
           as: "candidateUrls",
         },
@@ -32,6 +35,10 @@ const CandidateService = {
   getAllCandidate: async (req) => {
     const candidate = await CandidateModel.findAll({
       include: [
+        {
+          model: SkillModel,
+          attributes: ["name"],
+        },
         {
           model: CandidateUrlModel,
           as: "candidateUrls",
