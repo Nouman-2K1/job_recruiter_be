@@ -66,15 +66,10 @@ const CandidateService = {
       experience,
       cv,
     } = candidateData;
-
-    const categoryId = await CategoryModel.findOne({
-      where: {
-        name: category,
-      },
+    const CAT = await CategoryModel.create({
+      name: category,
     });
-    if (!categoryId) {
-      return { error: "Invalid Category" };
-    }
+
     const candidate = await CandidateModel.create({
       name,
       email,
@@ -84,7 +79,7 @@ const CandidateService = {
       image,
       hourly_rate,
       description,
-      categoryId: categoryId.id,
+      categoryId: CAT.id,
       userId,
       status: true,
       cv,
