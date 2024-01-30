@@ -256,6 +256,13 @@ const CandidateService = {
 
     return { message: "Candidate deleted successfully" };
   },
+  resumeCounter: async (req) => {
+    const userEmail = req.session.user.email;
+    const resumeCount = await CandidateModel.count({
+      where: { email: userEmail },
+    });
+    return { resumeCount };
+  },
 };
 
 export default CandidateService;

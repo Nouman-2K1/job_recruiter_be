@@ -26,4 +26,9 @@ CandidateRouter.delete(
   AuthenticateCandidate,
   CandidateController.deleteCandidate
 );
+CandidateRouter.get(
+  "/resumeCounter",
+  AuthenticateCandidate,
+  CandidateController.resumeCounter
+);
 export default CandidateRouter;
