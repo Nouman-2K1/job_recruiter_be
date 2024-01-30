@@ -40,6 +40,9 @@ const CandidateValidator = {
         category: Joi.string().max(100).required(),
         hourly_rate: Joi.string().max(100).required(),
         description: Joi.string().max(100).required(),
+
+        cv: Joi.string().max(100).required(),
+        status: Joi.boolean().max(100).required(),
         skill: Joi.array().items(skillSchema),
         url: Joi.array().items(urlSchema),
         education: Joi.array().items(educationSchema),
