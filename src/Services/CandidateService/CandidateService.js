@@ -8,6 +8,7 @@ import CandidaetExperienceModel from "../../Model/CandidateExprerienceModel/Cand
 import ApplicationModel from "../../Model/ApplicationModel/ApplicationModel.js";
 const CandidateService = {
   getSingleCandidate: async (candidateId) => {
+    console.log("first");
     const candidate = await CandidateModel.findOne({
       where: {
         id: candidateId,
@@ -15,6 +16,7 @@ const CandidateService = {
       include: [
         {
           model: SkillModel,
+          attributes: ["name"],
         },
         {
           model: CandidateUrlModel,
@@ -26,7 +28,11 @@ const CandidateService = {
         },
         {
           model: CandidaetEducationModel,
-          as: "candidateEducations",
+          as: "CandidateEducations",
+        },
+        {
+          model: CategoryModel,
+          attributes: ["name"],
         },
       ],
     });
@@ -264,6 +270,7 @@ const CandidateService = {
     const resumeCount = await CandidateModel.count({
       where: { userId },
     });
+    console.log(resumeCount);
     return { resumeCount };
   },
   applyedJobCounter: async (req) => {
@@ -272,6 +279,15 @@ const CandidateService = {
       where: { userId },
     });
     return { applyedJobCount };
+  },
+  getAllResume: async (req) => {
+    const userId = req.session.user.id;
+    const candidate = await CandidateModel.findAll({
+      where: {
+        userId,
+      },
+    });
+    return candidate;
   },
 };
 

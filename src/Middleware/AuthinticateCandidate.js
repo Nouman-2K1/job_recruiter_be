@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 const AuthenticateCandidate = (req, res, next) => {
   try {
     let token = req.headers.authorization;
+    console.log(req.session, token);
     token = token.replace("Bearer ", "");
     jwt.verify(token, process.env.JWTSECRET);
 
