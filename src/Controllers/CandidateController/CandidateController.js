@@ -89,6 +89,14 @@ const CandidateController = {
       return res.status(500).json({ message: "Internal Server Error" });
     }
   },
+  getAllResume: async (req, res) => {
+    try {
+      const candidate = await CandidateService.getAllResume(req);
+      return res.status(200).json(candidate);
+    } catch (error) {
+      return res.status(500).json({ message: "Internal Server Error 1" });
+    }
+  },
 };
 
 export default CandidateController;

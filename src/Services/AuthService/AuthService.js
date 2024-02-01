@@ -44,6 +44,7 @@ const AuthService = {
     });
     req.session.token = token;
     req.session.user = data;
+    console.log(req.session);
     await req.session.save();
     return {
       token,

@@ -36,4 +36,10 @@ CandidateRouter.get(
   AuthenticateCandidate,
   CandidateController.applyedJobCounter
 );
+CandidateRouter.get(
+  "/AllResume",
+  AuthenticateCandidate,
+  CandidateController.getAllResume
+);
+
 export default CandidateRouter;
