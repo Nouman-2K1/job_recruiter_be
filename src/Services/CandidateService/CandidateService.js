@@ -282,6 +282,7 @@ const CandidateService = {
   },
   getAllResume: async (req) => {
     const userId = req.session.user.id;
+    console.log("h2");
     const candidate = await CandidateModel.findAll({
       where: {
         userId,
